@@ -10,14 +10,16 @@ public class Game {
         System.out.println("Welcome to my text adventure.");
         player = new Player();
 
-        while (true) {
-            player.chooseName();
-            player.chooseWeapon();
-            player.chooseArea();
-            player.findItem("Shield");
 
+        player.chooseName();
+        player.chooseWeapon();
+        player.chooseArea();
+        player.findItem("Shield");
+
+        Enemy ogre = new Enemy("Ogre", 50, 5);
+        player.battle(ogre);
         }
-    }
+
     static String nextLine(){
         Scanner scanner = new Scanner (System.in);
         String s  = scanner.nextLine();
@@ -27,6 +29,7 @@ public class Game {
                 System.out.println("/help => List available commands" );
             } else if(s.equals("/exit")){
                 System.exit(0);
+
             }else if (s.equals("/inv")){
                 if (player.items.size() ==0){
                     System.out.println("You have no items");
