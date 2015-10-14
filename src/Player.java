@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * Created by macbookair on 10/9/15.
  */
 public class Player extends Character {
-    String weapon;
+
     String area;
     ArrayList items = new ArrayList();
 
@@ -22,14 +22,21 @@ public class Player extends Character {
     void chooseWeapon() throws Exception {
         System.out.println("[1] Pick up a sword");
         System.out.println("[2] Pick up a mallet");
-        weapon = Game.nextLine();
-        if (weapon.equals("1")) {
-            System.out.println("That's a fine sword!");
-        } else if (weapon.equals("2")) {
-            System.out.println("That's a heavy mallet!");
+        int weaponNum = Integer.valueOf(Game.nextLine());
+        if (weaponNum ==1) {
+
+            weapon = new Weapon();
+            weapon.name = "Sword";
+            weapon.damage = 10;
+        } else if (weaponNum == 2) {
+
+            weapon = new Weapon();
+            weapon.name = "Mallet";
+            weapon.damage = 10;
         } else {
             throw new Exception("Invalid Weapon");
         }
+        System.out.println(String.format("That's a fine %s !", weapon.name.toLowerCase()));
     }
 
         void chooseArea() throws Exception {
