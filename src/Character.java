@@ -20,8 +20,24 @@ public class Character {
         if (health <=0){
             System.out.println(String.format(deadMessage, name));
         }
-        if (opponent.health <=0){
+        if (opponent.health <= 0){
             System.out.println(String.format(deadMessage, opponent.name));
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public Weapon getWeapon() {
+        return weapon;
     }
 }
